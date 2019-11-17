@@ -8,6 +8,8 @@ module.exports = (router, queries, endpoint, endpointName) => {
     });
 
     router.route(`/${endpoint}/`)
+        .get(middlewares.getAll)
+        .options(middlewares.cors)
         .post(
             middlewares.create,
         )
