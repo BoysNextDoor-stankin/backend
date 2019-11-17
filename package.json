@@ -1,0 +1,24 @@
+{
+  "name": "backend-face",
+  "version": "1.0.0",
+  "description": "Серверная часть платформы для подбора контента",
+  "main": "index.js",
+  "scripts": {
+    "start": "node service.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BoysNextDoor-stankin/backend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BoysNextDoor-stankin/backend/issues"
+  },
+  "homepage": "https://github.com/BoysNextDoor-stankin/backend#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "pg-promise": "^10.2.1"
+  }
+}
