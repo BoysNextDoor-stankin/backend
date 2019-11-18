@@ -5,11 +5,13 @@ module.exports = {
     getAll: `SELECT image_id as "imageId"
                     ,image_link as "image"
                     ,owner_id as "ownerId"
-                    ,params;`,
+                    ,params
+             FROM images;`,
     getOne: `SELECT image_id as "imageId"
                     ,image_link as "image"
                     ,owner_id as "ownerId"
                     ,params
+             FROM images       
              WHERE image_id = $[params.id];`,
 
 };

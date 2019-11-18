@@ -15,5 +15,12 @@ module.exports = (router, queries, endpoint, endpointName) => {
         )
         .all(middlewares.notAllowed);
 
+    router.param(`${endpointName}Id`, middlewares.idValidation);
+
+    router.route(`/${endpoint}/:${endpointName}Id`)
+        .get(middlewares.getOne)
+        .options(middlewares.cors)
+        .all(middlewares.notAllowed);
+
     return router;
 };
