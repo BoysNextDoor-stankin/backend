@@ -4,5 +4,8 @@ module.exports = {
              RETURNING user_id as "userId"
                        ,name
                        ,login;`,
-    getOne: ``
+    checkUser: `SELECT name
+                        ,user_id as "userId"
+             FROM users
+             WHERE login = $[params.login] AND password = md5($[params.password]);`
 };

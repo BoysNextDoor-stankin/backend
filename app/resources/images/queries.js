@@ -6,4 +6,10 @@ module.exports = {
                     ,image_link as "image"
                     ,owner_id as "ownerId"
                     ,params;`,
+    getOne: `SELECT image_id as "imageId"
+                    ,image_link as "image"
+                    ,owner_id as "ownerId"
+                    ,params
+             WHERE image_id = $[params.id];`,
+
 };
