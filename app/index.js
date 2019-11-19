@@ -12,9 +12,17 @@ const app = new Express();
 
 app.use(bodyParser.json({limit: '50mb'}), bodyParser.urlencoded({extended: true, limit: '50mb'}));
 
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+    next();
+});
+
 
 const staticRoot = `/static`;
 app.use(staticRoot, Express.static('public'));
+
 
 
 const responseTemplate = {
@@ -55,7 +63,7 @@ app.use((responseData, req, res, next) => {
             appResponse = {...responseTemplate, success, ...data.toResponse()};
         }
 
-        console.info(`Response ${req.method} ${req.originalUrl} => ${appResponse.code} ${JSON.stringify(appResponse)}`);
+        // console.info(`Response ${req.method} ${req.originalUrl} => ${appResponse.code} ${JSON.stringify(appResponse)}`);
         res.status(appResponse.code).json(appResponse);
     } catch (error) {
         const errInternal = new errors.Internal(error.message);
