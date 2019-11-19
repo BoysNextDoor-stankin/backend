@@ -4,6 +4,7 @@ const getAll = require('./get-all.js');
 const getOne = require('./get-one.js');
 const cors = require('./cors.js');
 const idValidation = require('./id-validation.js');
+const update = require('./update.js');
 
 module.exports = {
     create,
@@ -12,4 +13,5 @@ module.exports = {
     cors,
     idValidation,
     getOne,
+    update,
 };

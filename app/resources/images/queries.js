@@ -13,5 +13,10 @@ module.exports = {
                     ,params
              FROM images       
              WHERE image_id = $[params.id];`,
+    update: `UPDATE images
+             SET params = $[params.params]
+             WHERE image_id = $[params.id]
+             RETURNING image_id as "imageId"
+                       ,params;`,
 
 };

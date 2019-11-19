@@ -19,6 +19,7 @@ module.exports = (router, queries, endpoint, endpointName) => {
 
     router.route(`/${endpoint}/:${endpointName}Id`)
         .get(middlewares.getOne)
+        .put(middlewares.update)
         .options(middlewares.cors)
         .all(middlewares.notAllowed);
 
