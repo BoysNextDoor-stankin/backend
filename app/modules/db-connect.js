@@ -1,10 +1,12 @@
 const pg = require('pg-promise')();
 
+const connection = process.env.DATABASE_URL ||
+    {
+        host: 'localhost',
+        port: 5430,
+        database: 'face_recognising',
+        user: 'postgres',
+        password: 'password'
+    };
 
-module.exports = pg({
-    host: 'localhost',
-    port: 5430,
-    database: 'face_recognising',
-    user: 'postgres',
-    password: 'password'
-});
+module.exports = pg(connection);
