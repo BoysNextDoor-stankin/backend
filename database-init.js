@@ -9,8 +9,17 @@ const queries = {
                           owner_id   integer                     not null,
                           params     jsonb default '{}' :: jsonb not null
                         );`,
+    addComments: `ALTER TABLE images ADD comment varchar NULL;`,
 };
 storage.none(queries.createTableImages)
+    .then(() => {
+        console.log('table created');
+    })
+    .catch(error => {
+        console.log(error);
+    });
+
+storage.none(queries.addComments)
     .then(() => {
         console.log('table created');
     })
