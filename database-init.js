@@ -21,7 +21,7 @@ storage.none(queries.createTableImages)
 
 storage.none(queries.addComments)
     .then(() => {
-        console.log('table created');
+        console.log('comment created');
     })
     .catch(error => {
         console.log(error);
